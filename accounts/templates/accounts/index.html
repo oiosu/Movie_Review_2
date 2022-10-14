@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+  <div class="form">
+    <h1>회원 목록</h1>
+    <div class="row justify-content-center">
+      {% for user in users %}
+        <div>
+          <a href="{% url 'accounts:detail' user.pk %}">
+            {{ user.username }}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
