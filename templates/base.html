@@ -14,7 +14,7 @@
     <!-- nav -->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a href="{% url 'accounts:index' %}">🏠으로!</a>
+            <a href="{% url 'articles:index' %}">🏠으로!</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -25,6 +25,9 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'accounts:logout' %}">로그아웃</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'accounts:detail' user.pk %}">내프로필</a>
+              </li>
                 {% else %}
               <li class="nav-item"> 
                 <a class="nav-link active" aria-current="page" href="{% url 'accounts:login' %}">로그인</a>
@@ -33,9 +36,6 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'accounts:signup' %}">회원가입</a>
               </li>
                 {% endif %}
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
             </ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
