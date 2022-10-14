@@ -8,7 +8,7 @@
       {% for user in users %}
         <div>
           <a href="{% url 'accounts:detail' user.pk %}">
-            {{ user.username }}
+            {{ user.username }} 
           </a>
         </div>
       {% endfor %}

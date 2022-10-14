@@ -2,6 +2,8 @@
 {% load django_bootstrap5 %}
 {% block content %}
 <h1>{{ user.username }}님의 프로필</h1>
-<p>{{ user.email }} | {{ user.full_name }}</p>
-<button type="submit" class="btn btn-danger">회원정보수정</button>
+    <p>{{ user.full_name }} {{ user.email }}</p>
+{% if request.user == user %}
+    <a href="{% url 'accounts:update' user.pk %}">회원 수정</a>
+{% endif %}
 {% endblock %}

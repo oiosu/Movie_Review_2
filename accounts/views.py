@@ -47,12 +47,12 @@ def detail(request, pk):
     return render(request, "accounts/detail.html", context)
 
 @login_required
-def update(request):
+def update(request, pk):
     if request.method == "POST":
         form = CustomUserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('accounts/detail.html', request.user.pk)
+            return redirect('accounts:detail', request.user.pk)
     else: # POST가 아닐 때
         form = CustomUserChangeForm(instance=request.user)
     context = {"form": form}
