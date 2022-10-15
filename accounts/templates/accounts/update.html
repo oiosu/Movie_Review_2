@@ -2,10 +2,12 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-<h1>프로필 업데이트</h1>
-<form action="" method="POST">
+  <h1>프로필 업데이트</h1>
+  <form action="" method="POST">
     {% csrf_token %}
     {% bootstrap_form form %}
-    {% bootstrap_button button_type="submit" content="OK" %}
-</form>
+    <button type="submit" class="btn btn-danger">ok</button>
+    <a href="{% url 'accounts:change_password' %}">비밀번호 변경</a>
+    <a href="{% url 'accounts:delete' %}">회원탈퇴</a>
+  </form>
 {% endblock %}
