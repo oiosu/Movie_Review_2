@@ -1,10 +1,62 @@
 {% extends 'base.html' %}
+
 {% block content %}
-  <h1>리뷰 목록</h1>
+  <!-- 영화 재밌게 보셨나요 -->
+  <!-- Button trigger modal -->
+<button type="button" class="m-4 btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  🤔 영화 재밌게 보셨나요?
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-black">
+      <div class="modal-header">
+        <h1 class="text-white modal-title fs-5" id="exampleModalLabel">영화는 정말 좋은 취미죠!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex justify-content-center">
+          <img src="https://images-ext-1.discordapp.net/external/eSFcoEAqz9-NgBdVWtZoSf_-tszyHLPy-wMx2uE26Bg/%3Fq%3Dtbn%3AANd9GcRLhtzX7zp7p3tXXejkYA4SamfSrNV_aLwte6_i71mqkknPEhMNl4GHsnGIyKdpenXzS8o%26usqp%3DCAU/https/encrypted-tbn0.gstatic.com/images" alt="">
+        </div>
+        <br>
+        <p class="text-white text-center">🥂 영화를 같이 보고 같이 이야기를 나눈다면 더 재밌게 볼 수 있어요!</p>
+      </div>
+      <div class="bg-black modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <a class="text-white" href="{% url 'articles:create' %}">REVIEW!!!! GO!!!</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
   {% if request.user.is_authenticated %}
-    <a href="{% url 'articles:create' %}">글 쓰기</a>
   {% endif %}
   {% for article in articles %}
+
+
+
+
+  
+  <div style="display:flex; justify-content: space-around; margin-top:2rem;">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLhtzX7zp7p3tXXejkYA4SamfSrNV_aLwte6_i71mqkknPEhMNl4GHsnGIyKdpenXzS8o&usqp=CAU" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3>
+              <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
+            </h3>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
     <h3>
       <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
     </h3>

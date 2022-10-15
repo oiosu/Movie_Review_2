@@ -1,4 +1,5 @@
 {% load django_bootstrap5 %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% bootstrap_css %}
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap");
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        background-color: rgb(249, 249, 151);
+      }
+    </style>
 </head>
-<body>
+<body class="bg-black">
     <!-- 기본 템플릿 안에 삽입될 내용 Start -->
 
     <!-- nav -->
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <a href="{% url 'articles:index' %}">🏠으로!</a>
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid ">
+            <button type="button" class="m-3 btn btn-outline-dark"><a class=" p-2 text-decoration-none text-white" href="{% url 'articles:index' %}">HOME</a></button>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -22,40 +30,56 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               
                {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'accounts:logout' %}">로그아웃</a>
+              <li class="text-white nav-item">
+                <a class="text-white nav-link active" aria-current="page" href="{% url 'accounts:logout' %}">Logout</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'accounts:detail' user.pk %}">내프로필</a>
+                <a class="text-white nav-link active" aria-current="page" href="{% url 'accounts:detail' user.pk %}">My Page</a>
               </li>
                 {% else %}
               <li class="nav-item"> 
-                <a class="nav-link active" aria-current="page" href="{% url 'accounts:login' %}">로그인</a>
+                <a class="text-white nav-link active" aria-current="page" href="{% url 'accounts:login' %}">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'accounts:signup' %}">회원가입</a>
+                <a class="text-white nav-link active" aria-current="page" href="{% url 'accounts:signup' %}">Join</a>
               </li>
                 {% endif %}
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="p-3 d-flex" role="search">
+              <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+              <button class="btn btn-outline-success" type="submit">🔍</button>
             </form>
           </div>
         </div>
-      </nav>    
+      </nav>
+      <!-- nav bottom -->
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <button type="button" class="m-3 btn btn-outline-danger">VIDEO
+            
+          </button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="m-3 btn btn-outline-danger">MOVIES</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="m-3 btn btn-outline-danger">TV SHOW</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="m-3 btn btn-outline-danger">MORE</button>
+        </li>
+      </ul>
+
 
         {% block content %}
 
         {% endblock %}
             <!-- As a link -->
-            <nav class="navbar bg-light">
-                <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                </div>
+            <nav class="navbar fixed-bottom bg-light">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">Fixed bottom</a>
+              </div>
             </nav>
-            <div class="container">
-    </div>
 
     <!-- 기본 템플릿 안에 삽입될 내용 End -->
     {% bootstrap_javascript %}
