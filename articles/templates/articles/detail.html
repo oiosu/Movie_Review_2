@@ -1,12 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %} 
-<h1>{{ article.pk }}번 게시글</h1>
-<p>{{ article.created_at|date:"SHORT_DATETIME_FORMAT" }} | {{ article.updated_at|date:"y-m-d D" }}</p>
-<p>{{ article.content }} </p>
-<a href="{% url 'articles:update' article.pk %}">수정하기</a>
+<section>
+  <div>
+    <div class="m-4 form-floating">
+      <h1 class="text-white">{{ article.movie_name }}</h1>
+      <p class="text-white">{{ article.title }} </p>
+      <p class="text-white">{{ article.content }} </p>
+      <p class="text-white">작성일 : {{ article.created_at|date:"SHORT_DATETIME_FORMAT" }} | 수정일 : {{ article.updated_at|date:"y-m-d D" }}</p>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary">
+    <a class="text-white text-decoration-none" href="{% url 'articles:update' article.pk %}">수정하기</a>
+  </button>
+
+<!-- <a href="{% url 'articles:update' article.pk %}">수정하기</a> -->
 <form action="{% url 'articles:delete' article.pk %}" method="POST">
   {% csrf_token %}
-  <button type="submit" class="btn btn-danger">리뷰 삭제</button>
+  <button type="submit" class="btn btn-danger">리뷰삭제</button>
 </form>
+</section>
+
 {% endblock %}

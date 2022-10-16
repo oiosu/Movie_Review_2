@@ -3,66 +3,121 @@
 {% block content %}
   <!-- 영화 재밌게 보셨나요 -->
   <!-- Button trigger modal -->
-<button type="button" class="m-4 btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  🤔 영화 재밌게 보셨나요?
-</button>
+<!-- banner -->
+
+<div class="position-absolute top-0 start-50 translate-middle-x">
+  <button type="button" class="m-4 btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    🤔 영화 재밌게 보셨나요?
+  </button>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content bg-black">
       <div class="modal-header">
-        <h1 class="text-white modal-title fs-5" id="exampleModalLabel">영화는 정말 좋은 취미죠!</h1>
+        <h1 class="text-white modal-title fs-5" id="exampleModalLabel">🎥 Movies are a great hobby!</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="d-flex justify-content-center">
-          <img src="https://images-ext-1.discordapp.net/external/eSFcoEAqz9-NgBdVWtZoSf_-tszyHLPy-wMx2uE26Bg/%3Fq%3Dtbn%3AANd9GcRLhtzX7zp7p3tXXejkYA4SamfSrNV_aLwte6_i71mqkknPEhMNl4GHsnGIyKdpenXzS8o%26usqp%3DCAU/https/encrypted-tbn0.gstatic.com/images" alt="">
+          <img src="https://giffiles.alphacoders.com/210/210562.gif" alt="">
         </div>
         <br>
-        <p class="text-white text-center">🥂 영화를 같이 보고 같이 이야기를 나눈다면 더 재밌게 볼 수 있어요!</p>
+        <p class="text-white text-center">🥂 If you watch a movie together and talk about it, <br> it will be more fun to watch!</p>
       </div>
-      <div class="bg-black modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <a class="text-white" href="{% url 'articles:create' %}">REVIEW!!!! GO!!!</a></button>
+      <div class="bg-black modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> <a class="text-white" href="{% url 'articles:create' %}">REVIEW!!!! NOW!!!</a></button>
       </div>
     </div>
   </div>
 </div>
 <br>
+
+  <!-- banner -->
+  <div class="m-4">
+    <div class="p-2 d-flex justify-content-betweenr justify-content-center">
+      <img  src="https://64.media.tumblr.com/7b91cb36878492729aa280517db1f4e3/tumblr_nrt4c7A5jK1s8njeuo1_500.gifv" alt="">
+      <img  src="https://mblogthumb-phinf.pstatic.net/20151003_295/nanumi__1443870731155JYtgo_GIF/%B9%CC%B4%CF%BE%F0%C1%EE4.gif?type=w2" alt="">
+      <img  src="https://mblogthumb-phinf.pstatic.net/20150829_146/lhjing7_1440829135684Lp9o4_GIF/6.gif?type=w2" alt="">
+    </div>
+  </div>
+
   {% if request.user.is_authenticated %}
   {% endif %}
   {% for article in articles %}
-
-
-
-
-  
-  <div style="display:flex; justify-content: space-around; margin-top:2rem;">
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLhtzX7zp7p3tXXejkYA4SamfSrNV_aLwte6_i71mqkknPEhMNl4GHsnGIyKdpenXzS8o&usqp=CAU" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
+   <!--card_글-->
+   <section>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="m-3 col-6 card w-75">
           <div class="card-body">
-            <h3>
-              <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
-            </h3>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <div class="d-flex justify-content-between">
+              <a style="color: black;" class="fs-3  fw-border text-decoration-none" href="{% url 'articles:detail' article.pk %} ">{{ article.movie_name }}</a>
+              <p>{{ article.created_at }}</p>
+            </div>
+            <p>{{ article.title }}</p>
+          </div>
+        </div>
+    </div>
+   </section>
+
+    
+
+
+
+
+<!-- 
+    <div class="m-4 row">
+      <div class="col-6 col-md-4">
+        <div class="bg-dark col-6 col-md-4 card" style="width: 18rem;">
+          <img src="https://cdn.enewstoday.kr/news/photo/201910/10102_3003_1404.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
+            <hr>
+            <p class="text-white card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <hr>
+            <p class="text-white">{{ article.created_at }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4">
+        <div class="bg-dark card" style="width: 18rem;">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHLplONMCPL4t2hpqVYvB92LjxIr4DCa3Jgg&usqp=CAU" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
+            <hr>
+            <p class="text-white card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <hr>
+            <p class="text-white">{{ article.created_at }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4">
+        <div class="bg-dark card" style="width: 18rem;">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP-s0lPfbipDsLyR6k3v5-Vf0tOEpH2HGZ6A&usqp=CAU" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
+            <hr>
+            <p class="text-white card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <hr>
+            <p class="text-white">{{ article.created_at }}</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  
+   </div> -->
+   
+ 
 
-    <h3>
+
+
+    <!-- <h3>
       <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
     </h3>
     <p>{{ article.created_at }}
       |
       {{ article.updated_at }}</p>
-    <hr>
+    <hr> -->
   {% endfor %}
 {% endblock %}
