@@ -1,24 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %} 
-<section>
-  <div>
-    <div class="m-4 form-floating">
-      <h1 class="text-white">{{ article.movie_name }}</h1>
-      <p class="text-white">{{ article.title }} </p>
-      <p class="text-white">{{ article.content }} </p>
-      <p class="text-white">작성일 : {{ article.created_at|date:"SHORT_DATETIME_FORMAT" }} | 수정일 : {{ article.updated_at|date:"y-m-d D" }}</p>
+<section class="position-absolute top-50 start-50 translate-middle">
+  <h1 class="text-white"> 🎬 Movie name  {{ article.movie_name }}</h1>
+  <br>
+  <br>
+  <div class="card">
+    <div class="card-body">
+      <p class="text-black">{{ article.title }} </p>
     </div>
   </div>
-  <button type="button" class="btn btn-primary">
-    <a class="text-white text-decoration-none" href="{% url 'articles:update' article.pk %}">수정하기</a>
-  </button>
+  <div>
+    <br>
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <p class="text-black"> {{ article.content }} </p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="d-flex flex-row-reverse">
+    <button type="button" class="m-3 btn btn-primary">
+      <a class="text-white text-decoration-none" href="{% url 'articles:update' article.pk %}">수정하기</a>
+    </button>
+    <form action="{% url 'articles:delete' article.pk %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="m-3 btn btn-danger">리뷰삭제</button>
+    </form>
+    </section>
+  </div>
+  {% endblock %}
 
-<!-- <a href="{% url 'articles:update' article.pk %}">수정하기</a> -->
+<!-- <a href="{% url 'articles:update' article.pk %}">수정하기</a>
 <form action="{% url 'articles:delete' article.pk %}" method="POST">
   {% csrf_token %}
   <button type="submit" class="btn btn-danger">리뷰삭제</button>
 </form>
-</section>
+</section> -->
 
-{% endblock %}

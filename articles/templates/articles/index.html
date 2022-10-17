@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
-{% block content %}
+
   <!-- 영화 재밌게 보셨나요 -->
   <!-- Button trigger modal -->
 <!-- banner -->
-
+{% block content %}
 <div class="position-absolute top-0 start-50 translate-middle-x">
-  <button type="button" class="m-4 btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    🤔 영화 재밌게 보셨나요?
+  <button type="button" class="m-4 btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <h5>🤔 영화 재밌게 보셨나요?</h5>
   </button>
 </div>
 
@@ -35,20 +35,70 @@
 <br>
 
   <!-- banner -->
+  <div class="row justify-content-evenly">
+    <div class="container text-center">
+      <div class=" text">
+        <h4 class="text-white">🏆 인기 리뷰 영화 </h4>
+      </div>
+      <div class="m-5 row">
+        <div class="col order-last">
+         <img class="mb-3 border border-danger" src="https://t4.ftcdn.net/jpg/02/06/96/23/240_F_206962335_ja9KDQE4YMn01iedshXeI4QYhSJA1M8a.jpg" alt="">
+         <div>
+          <button type="button" class="m-0 btn btn-light">Horror Night</button>
+         </div>
+        </div>
+        <div class="col">
+          <img class="mb-3 border border-danger" src="https://t3.ftcdn.net/jpg/05/06/01/42/240_F_506014246_V1vbPMYo0rOu06xtNOb7pIC1PEy275bC.jpg" alt="">
+          <div>
+            <button type="button" class="m-0 btn btn-light">Come Back</button>
+           </div>
+        </div>
+        <div class="col">
+          <img class="mb-3 border border-danger" src="https://t4.ftcdn.net/jpg/03/81/56/75/240_F_381567595_eX83HujmVIAmH5h0cNM97rPdGIyIyEKS.jpg" alt="">
+          <div>
+            <button type="button" class="m-0 btn btn-light">Come Space</button>
+           </div>
+        </div>
+        <div class="col order-first">
+          <img class="mb-3 border border-danger" src="https://t4.ftcdn.net/jpg/03/82/88/69/240_F_382886913_aPB2GrbCPRPB967Sihl1sc9HF0swrugI.jpg" alt="">
+          <div>
+            <button type="button" class="m-0 btn btn-light">Western</button>
+           </div>
+        </div>
+        <div class="col order-first">
+          <img class="mb-3 border border-danger" src="https://t3.ftcdn.net/jpg/01/68/88/42/240_F_168884299_C3ifQy5RzXI9uo2C1AvL2tF9CpM5ejWh.jpg" alt="">
+          <div>
+            <button type="button" class="m-0 btn btn-light">Space Movie</button>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <div class="m-4">
     <div class="p-2 d-flex justify-content-betweenr justify-content-center">
       <img  src="https://64.media.tumblr.com/7b91cb36878492729aa280517db1f4e3/tumblr_nrt4c7A5jK1s8njeuo1_500.gifv" alt="">
       <img  src="https://mblogthumb-phinf.pstatic.net/20151003_295/nanumi__1443870731155JYtgo_GIF/%B9%CC%B4%CF%BE%F0%C1%EE4.gif?type=w2" alt="">
       <img  src="https://mblogthumb-phinf.pstatic.net/20150829_146/lhjing7_1440829135684Lp9o4_GIF/6.gif?type=w2" alt="">
-    </div>
+  </div>
+  <div class="container">
+    <nav class="m-3 p-3 justify-content-center navbar bg-black">
+      <div class="container-fluid justify-content-center">
+        <span class="text-white navbar-text">
+          미니언즈 |  “난 나를 위해 시간을 내는 사람을 위해 시간을 낸다.”
+        </span>
+      </div>
+    </nav>
   </div>
 
   {% if request.user.is_authenticated %}
   {% endif %}
   {% for article in articles %}
    <!--card_글-->
+
    <section>
-    <div class="container">
       <div class="row justify-content-md-center">
         <div class="m-3 col-6 card w-75">
           <div class="card-body">
@@ -62,13 +112,8 @@
     </div>
    </section>
 
-    
 
-
-
-
-<!-- 
-    <div class="m-4 row">
+    <!-- <div class="m-4 row">
       <div class="col-6 col-md-4">
         <div class="bg-dark col-6 col-md-4 card" style="width: 18rem;">
           <img src="https://cdn.enewstoday.kr/news/photo/201910/10102_3003_1404.jpg" class="card-img-top" alt="...">
@@ -106,10 +151,9 @@
         </div>
       </div>
     </div>
-   </div> -->
+   </div>  -->
    
  
-
 
 
     <!-- <h3>
