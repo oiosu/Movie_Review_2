@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
 {% block content %}
-<div class="container">
-  <div class="row col-12 justify-content-center mt-3">
-    <div class="col-5 ">
-      <h1 class="text-white">{{ user.username }}님의 프로필</h1>
-      <p class="text-white">{{ user.full_name }}
-        {{ user.email }}</p>
-        {% if request.user == user %}
-        <a href="{% url 'accounts:update' user.pk %}">회원 수정</a>
+
+<div class="container mt-3">
+  <div class="row justify-content-md-center">
+    <div class="card" style="width: 15rem">
+      <div class="card text-center" style="border:none">
+        <img style="margin-top:1rem" src="https://cdn-icons-png.flaticon.com/512/2586/2586717.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ user.username }}님의 프로필</h5>
+          {% if request.user == user %}
+          <a href="{% url 'accounts:update' user.pk %}" class="mt-2 btn btn-secondary">회원정보 수정</a>
+        </div>
+      </div>
+      {% endif %}
     </div>
   </div>
-</div>
-  {% endif %}
+</div>  
 {% endblock %}
