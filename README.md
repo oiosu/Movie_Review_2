@@ -165,7 +165,14 @@ def delete(request):
 ![2022-10-23 22;22;48](https://user-images.githubusercontent.com/99783474/197394739-3fc9fc21-51ed-4f46-b1b4-754a0f87d6b5.gif)
 
 
-### 3. 회원정보 수정 
+### 3. navbar & 글작성 
+![2022-10-23 22;24;36](https://user-images.githubusercontent.com/99783474/197394826-3bb3ff9b-4bd7-4e41-a6f5-9db205af3a6c.gif)
+
+
+### 4. banner & 작성된 글 보기 
+
+
+
 
 
 
