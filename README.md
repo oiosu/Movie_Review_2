@@ -158,6 +158,11 @@ def delete(request):
 
 #### 1. 회원가입 & 회원목록 조회 
 
+![2022-10-23 22;19;59](https://user-images.githubusercontent.com/99783474/197394635-787bbf40-3cfa-40f5-839e-32c8c73a65a5.gif)
+
+
+#### 2. 회원정보 수정 
+
 
 
 
