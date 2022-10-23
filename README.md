@@ -170,6 +170,7 @@ def delete(request):
 
 
 ### 4. banner & 작성된 글 보기 
+![image](https://user-images.githubusercontent.com/99783474/197395511-ef7b7a5b-9142-412f-b2b0-8180707946d8.png)
 
 
 
