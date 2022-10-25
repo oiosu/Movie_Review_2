@@ -10,12 +10,15 @@
 
 ---
 
+### 🐣 Contributors
+
+<a href="https://github.com/oiosu/Movie_Review_2/graphs/contributors">
+  <img src="https://user-images.githubusercontent.com/99783474/197393890-5a0e6f39-368d-4076-8a57-4810fbe1a2bd.png">
+</a>
 
 
-![image](https://user-images.githubusercontent.com/99783474/197393890-5a0e6f39-368d-4076-8a57-4810fbe1a2bd.png)
 
-
----ㅇ
+---
 
 
 
